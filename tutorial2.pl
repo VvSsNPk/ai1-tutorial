@@ -9,3 +9,12 @@ construct_btree(X,tree(Y,Lt,Rt),tree(Y,Lt,Rtchanged)) :-
 
 construct([],nil).
 construct([X|Y],T) :- construct(Y,T1),construct_btree(X,T1,T).
+
+
+% Towers of Hanoi
+move(1,A,B,_) :-
+    write("Move top disk from"),write(A),write(" to "),write(B).
+move(N, A,B,C) :-
+    N > 1,
+    M is N - 1,
+    move(M ,A,C,B),move(1,A,B,_),move(M,C,B,A).
